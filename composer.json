@@ -1,0 +1,55 @@
+{
+    "name": "apantle/laravel-simple-jwt-auth",
+    "description": "Guard and Issuer of JWT to use in your Laravel Application",
+    "keywords": [
+        "apantle",
+        "laravel-simple-jwt-auth"
+    ],
+    "homepage": "https://github.com/apantle/laravel-simple-jwt-auth",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jesus E. Franco Martinez",
+            "email": "jefrancomix@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^6.0",
+        "rbdwllr/reallysimplejwt": "^2.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Apantle\\LaravelSimpleJwtAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Apantle\\LaravelSimpleJwtAuth\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Apantle\\LaravelSimpleJwtAuth\\JwtAuthServiceProvider"
+            ],
+            "aliases": {
+                "JwtAuth": "Apantle\\LaravelSimpleJwtAuth\\JwtAuth"
+            }
+        }
+    }
+}
