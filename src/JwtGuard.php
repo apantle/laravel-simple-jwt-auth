@@ -73,8 +73,16 @@ class JwtGuard implements Guard
             return $token;
         }
 
-        if ($request->hasCookie('token')) {
-            return $request->cookies->get('token');
+        $cookieLookupKey = config('jwt-auth.cookie');
+        if ($request->hasCookie($cookieLookupKey)) {
+            return $request->cookies->get($cookieLookupKey);
+        }
+
+        $inputLookupKey = config('jwt-auth.input');
+        if ($request->request->has($inputLookupKey) ||
+            $request->query->has($inputLookupKey)
+        ) {
+            return $request->input($inputLookupKey, '');
         }
 
         return '';
