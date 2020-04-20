@@ -6,8 +6,8 @@ use Apantle\LaravelSimpleJwtAuth\JwtAuth;
 use \Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response as LaravelResponse;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class RegenerateTokenCookieMiddleware
@@ -43,7 +43,7 @@ class RegenerateTokenCookieMiddleware
 
         $expiresInMinutes = config('jwt-auth.expires_in') / 60;
 
-        $response->cookie(
+        $cookie = cookie(
             config('jwt-auth.cookie'),
             $token,
             $expiresInMinutes,
@@ -54,5 +54,7 @@ class RegenerateTokenCookieMiddleware
             false, // raw
             config('session.same_site')
         );
+
+        $response->headers->setCookie($cookie);
     }
 }
