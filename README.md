@@ -1,11 +1,12 @@
-# Very short description of the package
+# Guard and Issuer of JWT to use in your Laravel Application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/apantle/laravel-simple-jwt-auth.svg?style=flat-square)](https://packagist.org/packages/apantle/laravel-simple-jwt-auth)
 [![Build Status](https://img.shields.io/travis/apantle/laravel-simple-jwt-auth/master.svg?style=flat-square)](https://travis-ci.org/apantle/laravel-simple-jwt-auth)
-[![Quality Score](https://img.shields.io/scrutinizer/g/apantle/laravel-simple-jwt-auth.svg?style=flat-square)](https://scrutinizer-ci.com/g/apantle/laravel-simple-jwt-auth)
+[![Maintainability](https://api.codeclimate.com/v1/badges/532875232eab9558ec5c/maintainability)](https://codeclimate.com/github/tzkmx/laravel-simple-jwt-auth/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/532875232eab9558ec5c/test_coverage)](https://codeclimate.com/github/tzkmx/laravel-simple-jwt-auth/test_coverage)
 [![Total Downloads](https://img.shields.io/packagist/dt/apantle/laravel-simple-jwt-auth.svg?style=flat-square)](https://packagist.org/packages/apantle/laravel-simple-jwt-auth)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This is a very simple implementation of JWT Guard configurable for any model and claims through config file.
 
 ## Installation
 
@@ -42,7 +43,6 @@ If you discover any security related issues, please email jefrancomix@gmail.com 
 ## Credits
 
 - [Jesus E. Franco Martinez](https://github.com/apantle)
-- [All Contributors](../../contributors)
 
 ## License
 
