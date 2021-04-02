@@ -87,4 +87,9 @@ class JwtGuard implements Guard
 
         return '';
     }
+    
+    public function viaRemember()
+    {
+        return false;
+    }
 }
