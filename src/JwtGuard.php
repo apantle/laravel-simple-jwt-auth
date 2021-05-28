@@ -50,8 +50,9 @@ class JwtGuard implements Guard
         $token = $this->getPosibleToken($this->request);
 
         $userId = $this->tokenService->getAuthIdentifier($token);
-
-        logger(__METHOD__, compact('token', 'userId'));
+        
+        // TODO: verificar contra Exception caso de token no válido contra user not found
+        if (blank($userId)) return null;
 
         $this->user = $this->evaluatePolicy(
             $this->provider->retrieveById($userId)
