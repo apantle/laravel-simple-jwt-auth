@@ -51,6 +51,8 @@ class JwtGuard implements Guard
 
         $userId = $this->tokenService->getAuthIdentifier($token);
 
+        logger(__METHOD__, compact('token', 'userId'));
+
         $this->user = $this->evaluatePolicy(
             $this->provider->retrieveById($userId)
         );
@@ -100,11 +102,17 @@ class JwtGuard implements Guard
 
     public function viaRemember()
     {
+        logger(__METHOD__);
         return false;
+    }
+
+    public function logout()
+    {
+        logger(__METHOD__);
     }
 
     public function logoutCurrentDevice()
     {
-        //
+        logger(__METHOD__);
     }
 }
