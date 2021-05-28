@@ -50,8 +50,13 @@ class JwtGuard implements Guard
         $token = $this->getPosibleToken($this->request);
 
         $userId = $this->tokenService->getAuthIdentifier($token);
+        
+        // TODO: verificar contra Exception caso de token no válido contra user not found
+        if (blank($userId)) return null;
 
-        $this->user = $this->provider->retrieveById($userId);
+        $this->user = $this->evaluatePolicy(
+            $this->provider->retrieveById($userId)
+        );
 
         return $this->user;
     }
@@ -87,9 +92,28 @@ class JwtGuard implements Guard
 
         return '';
     }
-    
+
+    protected function evaluatePolicy($user = null): ?Authenticatable
+    {
+        return call_user_func_array(
+            config('jwt-auth.policy'),
+            [$this->request, $user]
+        );
+    }
+
     public function viaRemember()
     {
+        logger(__METHOD__);
         return false;
+    }
+
+    public function logout()
+    {
+        logger(__METHOD__);
+    }
+
+    public function logoutCurrentDevice()
+    {
+        logger(__METHOD__);
     }
 }

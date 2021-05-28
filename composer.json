@@ -17,8 +17,8 @@
     ],
     "require": {
         "php": "^7.4",
-        "laravel/framework": "^6.0 | ^7.0 | ^8.0",
-        "rbdwllr/reallysimplejwt": "^2.1"
+        "laravel/framework": "^6.0 | ^7.24.0 | ^8.0",
+        "rbdwllr/reallysimplejwt": "^2.0"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",

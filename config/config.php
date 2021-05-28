@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\Authenticatable;
 /*
  * Configurable:
  * - cookie and request input key to use as fallback is token
@@ -50,4 +52,10 @@ return [
     'guard' => 'jwt',
     'driver' => 'jwt',
     'provider' => 'jwt',
+    'policy' => function (Request $request, Authenticatable $user = null) {
+        if(
+            method_exists($user, 'hasPendingConfirmation') &&
+            $user->hasPendingConfirmation()
+        ) return null;
+    },
 ];
