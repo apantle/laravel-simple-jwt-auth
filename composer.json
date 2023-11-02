@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "laravel/framework": "^6.0 | ^7.24.0 | ^8.0",
         "rbdwllr/reallysimplejwt": "^2.0"
     },
